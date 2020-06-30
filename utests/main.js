@@ -2,7 +2,7 @@
  * Driver for user tests.
  */
 'use strict';
-var asyncronous = require('async');
+var asynchronous = require('async');
 var Player = require('./player');
 
 // create global config object
@@ -32,7 +32,7 @@ function userTest(player, cb) {
  *
  */
 function runUserTests(cb) {
-    asyncronous.each(players, userTest, function(err) {
+    asynchronous.each(players, userTest, function(err) {
         if (err) {
             logger.error('runUserTests %s',err.message);
             logger.error('runUserTests %s',err.stack);
@@ -45,7 +45,7 @@ function runUserTests(cb) {
  *
  */
 function testLoop() {
-    asyncronous.whilst(
+    asynchronous.whilst(
         // synch truth test to perform before each execution of runUserTests
         function() {
             return true;
@@ -91,7 +91,7 @@ function main() {
 
     // log all the players into the game
     var tableId = 1;
-    asyncronous.each(players,
+    asynchronous.each(players,
         function logIn(player, cb) {
             player.loginJoinTable(tableId++, function(err) {
                 if (err) {
