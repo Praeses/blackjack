@@ -5,7 +5,7 @@
 
 module.exports = Player;
 
-var async = require('async');
+var asyncronous = require('async');
 var randomName = require('names');
 var is = require('is2');
 //var restApi = require('./restApi');
@@ -84,7 +84,7 @@ Player.prototype.loginJoinTable = function(table, cb) {
  */
 Player.prototype.act = function(cb) {
     var self = this;
-    async.series([
+    asyncronous.series([
             // Bind is to enable calling of methods on this object.
             self.setupForAction.bind(self),
             self.doBehavior.bind(self)
@@ -103,7 +103,7 @@ Player.prototype.act = function(cb) {
  */
 Player.prototype.setupForAction = function(cb) {
     var self = this;
-    async.series([
+    asyncronous.series([
         function(cb) {                        // get the current game state
             self.debugGameState(true, function(err) {
                 if (err)
